@@ -1,46 +1,85 @@
 'use strict'
 
+var path = require('path')
 var webpack = require('webpack')
+var HtmlWebpackPlugin = require('html-webpack-plugin')
 
 module.exports = {
 	context: path.resolve(__dirname, '..'),
-	devtool: 'cheap-module-source-map',
+	devtool: 'source-map',
 	entry: [
-		require.resolve('webpack-dev-server/client') + '?/',
-		require.resolve('webpack/hot/dev-server'),
+		// require.resolve('webpack-dev-server/client') + '?/',
+		// require.resolve('webpack/hot/dev-server'),
 		'./src/index.tsx',
 	],
-	resolve: {
-		extensions : ['', '.js', '.ts', '.tsx', '.jsx'],
-	},
-	loaders: [
-		{
-			exclude: [
-				/\.html$/,
-				// We have to write /\.(js|jsx)(\?.*)?$/ rather than just /\.(js|jsx)$/
-				// because you might change the hot reloading server from the custom one
-				// to Webpack's built-in webpack-dev-server/client?/, which would not
-				// get properly excluded by /\.(js|jsx)$/ because of the query string.
-				// Webpack 2 fixes this, but for now we include this hack.
-				// https://github.com/facebookincubator/create-react-app/issues/1713
-				/\.(js|jsx)(\?.*)?$/,
-				/\.(ts|tsx)(\?.*)?$/,
-				/\.css$/,
-				/\.json$/,
-				/\.svg$/
-			],
-			loader: 'url',
-			query: {
-				limit: 10000,
-				name: 'static/media/[name].[hash:8].[ext]'
-			}
-		},
-		{ test: /\.tsx?$/, loader: "awesome-typescript-loader" },
-	],
 	output: {
-		path: 'build',
+		path: path.join(__dirname, '../build'),
 		pathinfo: true,
-		filename: 'static/js/bundle.js',
+		filename: 'static/js/[name].[chunkhash:8].js',
 		publicPath: '/',
-	}
+	},
+	resolve: {
+    	extensions: ['.js', '.json', '.jsx', '.tsx', '.ts'],
+	},
+	plugins: [
+		new HtmlWebpackPlugin({
+			template: path.resolve(__dirname, '../public/index.html'),
+			inject : 'body',
+			hash : true,
+			minify: {
+				removeComments: true,
+				collapseWhitespace: true,
+				removeRedundantAttributes: true,
+				useShortDoctype: true,
+				removeEmptyAttributes: true,
+				removeStyleLinkTypeAttributes: true,
+				keepClosingSlash: true,
+				minifyJS: true,
+				minifyCSS: true,
+				minifyURLs: true
+			}
+		}),
+		new webpack.LoaderOptionsPlugin({
+			options: {
+				postcss: [
+					require('postcss-cssnext')
+				]
+			}
+		}),
+		new webpack.optimize.UglifyJsPlugin({
+			compress: {
+				screw_ie8: true, // React doesn't support IE8
+				warnings: false
+			},
+			mangle: {
+				screw_ie8: true
+			},
+			output: {
+				comments: false,
+				screw_ie8: true
+			}
+		}),
+	],
+	module: {
+		loaders: [
+			{
+				exclude: [
+					/\.html$/,
+					/\.(js|jsx)(\?.*)?$/,
+					/\.(ts|tsx)(\?.*)?$/,
+					/\.css$/,
+					/\.json$/,
+					/\.svg$/
+				],
+				loader: 'url',
+				query: {
+					limit: 10000,
+					name: 'static/media/[name].[hash:8].[ext]'
+				}
+			},
+			{ test: /\.tsx?$/, loader: 'awesome-typescript-loader' },
+			{ test: /\.css?$/, loader: 'style-loader!css-loader?importLoaders=1!postcss-loader' },
+		]
+	},
+
 }

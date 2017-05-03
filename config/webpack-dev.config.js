@@ -8,8 +8,8 @@ module.exports = {
 	context: path.resolve(__dirname, '..'),
 	devtool: 'cheap-module-source-map',
 	entry: [
-		require.resolve('webpack-dev-server/client') + '?/',
-		require.resolve('webpack/hot/dev-server'),
+		// require.resolve('webpack-dev-server/client') + '?/',
+		// require.resolve('webpack/hot/dev-server'),
 		'./src/index.tsx',
 	],
 	output: {
@@ -18,11 +18,21 @@ module.exports = {
 		filename: 'static/js/bundle.js',
 		publicPath: '/',
 	},
+	resolve: {
+    	extensions: ['.js', '.json', '.jsx', '.tsx', '.ts'],
+	},
 	plugins: [
 		new HtmlWebpackPlugin({
 			template: path.resolve(__dirname, '../public/index.html'),
 			inject : 'body',
 			hash : true,
+		}),
+		new webpack.LoaderOptionsPlugin({
+			options: {
+				postcss: [
+					require('postcss-cssnext')
+				]
+			}
 		}),
 	],
 	module: {
@@ -42,7 +52,9 @@ module.exports = {
 					name: 'static/media/[name].[hash:8].[ext]'
 				}
 			},
-			{ test: /\.tsx?$/, loader: "awesome-typescript-loader" },
+			{ test: /\.tsx?$/, loader: 'awesome-typescript-loader' },
+			{ test: /\.css?$/, loader: 'style-loader!css-loader?importLoaders=1!postcss-loader' },
 		]
-	}
+	},
+
 }

@@ -1,18 +1,5 @@
 import * as React from 'react'
 import * as ReactDOM from 'react-dom'
+import Root from './root'
 
-class TestComponent extends React.Component<any, any> {
-	constructor() {
-		super()
-	}
-	render() {
-		return (
-			<div>
-				no
-			</div>
-		)
-	}
-
-}
-
-ReactDOM.render(<TestComponent />, document.getElementById('react-root'))
+ReactDOM.render(<Root />, document.getElementById('react-root'))
