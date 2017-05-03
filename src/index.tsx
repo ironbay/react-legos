@@ -8,7 +8,7 @@ class TestComponent extends React.Component<any, any> {
 	render() {
 		return (
 			<div>
-				Hellu
+				no
 			</div>
 		)
 	}
