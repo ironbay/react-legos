@@ -1,0 +1,7 @@
+{
+    "preset": "airbnb",
+	"validateIndentation": "\t",
+    "requirePaddingNewLinesBeforeLineComments": false,
+	"requireSemicolons": false,
+	"disallowSemicolons": true,
+}

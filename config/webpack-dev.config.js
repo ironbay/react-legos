@@ -19,20 +19,20 @@ module.exports = {
 		publicPath: '/',
 	},
 	resolve: {
-    	extensions: ['.js', '.json', '.jsx', '.tsx', '.ts'],
+		extensions: ['.js', '.json', '.jsx', '.tsx', '.ts'],
 	},
 	plugins: [
 		new HtmlWebpackPlugin({
 			template: path.resolve(__dirname, '../public/index.html'),
-			inject : 'body',
-			hash : true,
+			inject: 'body',
+			hash: true,
 		}),
 		new webpack.LoaderOptionsPlugin({
 			options: {
 				postcss: [
-					require('postcss-cssnext')
-				]
-			}
+					require('postcss-cssnext'),
+				],
+			},
 		}),
 	],
 	module: {
@@ -44,17 +44,16 @@ module.exports = {
 					/\.(ts|tsx)(\?.*)?$/,
 					/\.css$/,
 					/\.json$/,
-					/\.svg$/
+					/\.svg$/,
 				],
 				loader: 'url',
 				query: {
 					limit: 10000,
-					name: 'static/media/[name].[hash:8].[ext]'
-				}
+					name: 'static/media/[name].[hash:8].[ext]',
+				},
 			},
 			{ test: /\.tsx?$/, loader: 'awesome-typescript-loader' },
 			{ test: /\.css?$/, loader: 'style-loader!css-loader?importLoaders=1!postcss-loader' },
-		]
+		],
 	},
-
 }

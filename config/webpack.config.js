@@ -3,6 +3,7 @@
 var path = require('path')
 var webpack = require('webpack')
 var HtmlWebpackPlugin = require('html-webpack-plugin')
+var ExtractTextPlugin = require('extract-text-webpack-plugin')
 
 module.exports = {
 	context: path.resolve(__dirname, '..'),
@@ -19,13 +20,13 @@ module.exports = {
 		publicPath: '/',
 	},
 	resolve: {
-    	extensions: ['.js', '.json', '.jsx', '.tsx', '.ts'],
+		extensions: ['.js', '.json', '.jsx', '.tsx', '.ts'],
 	},
 	plugins: [
 		new HtmlWebpackPlugin({
 			template: path.resolve(__dirname, '../public/index.html'),
-			inject : 'body',
-			hash : true,
+			inject: 'body',
+			hash: true,
 			minify: {
 				removeComments: true,
 				collapseWhitespace: true,
@@ -36,29 +37,32 @@ module.exports = {
 				keepClosingSlash: true,
 				minifyJS: true,
 				minifyCSS: true,
-				minifyURLs: true
-			}
+				minifyURLs: true,
+			},
 		}),
 		new webpack.LoaderOptionsPlugin({
 			options: {
 				postcss: [
-					require('postcss-cssnext')
-				]
-			}
+					require('postcss-cssnext'),
+				],
+			},
 		}),
+		new webpack.optimize.OccurrenceOrderPlugin(),
+		new webpack.optimize.DedupePlugin(),
 		new webpack.optimize.UglifyJsPlugin({
 			compress: {
 				screw_ie8: true, // React doesn't support IE8
-				warnings: false
+				warnings: false,
 			},
 			mangle: {
-				screw_ie8: true
+				screw_ie8: true,
 			},
 			output: {
 				comments: false,
-				screw_ie8: true
-			}
+				screw_ie8: true,
+			},
 		}),
+		new ExtractTextPlugin('static/css/[name].[contenthash:8].css'),
 	],
 	module: {
 		loaders: [
@@ -69,17 +73,23 @@ module.exports = {
 					/\.(ts|tsx)(\?.*)?$/,
 					/\.css$/,
 					/\.json$/,
-					/\.svg$/
+					/\.svg$/,
 				],
 				loader: 'url',
 				query: {
 					limit: 10000,
-					name: 'static/media/[name].[hash:8].[ext]'
-				}
+					name: 'static/media/[name].[hash:8].[ext]',
+				},
 			},
-			{ test: /\.tsx?$/, loader: 'awesome-typescript-loader' },
-			{ test: /\.css?$/, loader: 'style-loader!css-loader?importLoaders=1!postcss-loader' },
-		]
+			{
+				test: /\.tsx?$/,
+				loader: 'awesome-typescript-loader',
+			},
+			{
+				test: /\.css?$/,
+				loader: ExtractTextPlugin.extract({ fallback: 'style-loader', use: 'css-loader' }),
+			},
+		],
 	},
 
 }
