@@ -9,7 +9,7 @@ export default class Root extends React.Component<any, any> {
 	render() {
 		return (
 			<div>
-				<span>It works! Hooray</span>
+				{this.props.children}
 			</div>
 		)
 	}
