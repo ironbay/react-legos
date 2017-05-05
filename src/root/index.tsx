@@ -6,10 +6,9 @@ export default class Root extends React.Component<any, any> {
 		super()
 	}
 	render() {
-		console.log('lol')
 		return (
 			<div>
-				no
+				<span>It works! Nice Hot loading yeah yeah</span>
 			</div>
 		)
 	}
