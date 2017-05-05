@@ -5,7 +5,7 @@ import Root from './root'
 
 import HomePage from './pages/home-page'
 
-const routes = () => {
+export default () => {
 	return (
 		<BrowserRouter>
 			<Root>
@@ -16,4 +16,12 @@ const routes = () => {
 }
 
 
-export default routes
+export class RouteHack extends React.Component<any, any> {
+	render() {
+		return (
+			<BrowserRouter>
+				{this.props.routes()}
+			</BrowserRouter>
+		)
+	}
+}

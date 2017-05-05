@@ -11,10 +11,9 @@ const render = Component => {
 		</AppContainer>
 	, element)
 }
-console.log(Routes)
 render(Routes)
 if (module.hot) {
-		module.hot.accept('./root', () => {
+		module.hot.accept('./routes', () => {
 			const NextApp = require<RequireImport>('./routes').default
 			ReactDOM.render(
 				<AppContainer>
