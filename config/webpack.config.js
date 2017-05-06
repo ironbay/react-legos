@@ -43,6 +43,9 @@ module.exports = {
 		new webpack.LoaderOptionsPlugin({
 			options: {
 				postcss: [
+					require('postcss-import')({
+						addDependencyTo: webpack,
+					}),
 					require('postcss-cssnext'),
 				],
 			},

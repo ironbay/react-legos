@@ -6,7 +6,7 @@ var HtmlWebpackPlugin = require('html-webpack-plugin')
 
 module.exports = {
 	context: path.resolve(__dirname, '..'),
-	devtool: 'source-map',
+	devtool: 'cheap-module-eval-source-map',
 	entry: [
 		// require.resolve('webpack-dev-server/client') + '?/',
 		// require.resolve('webpack/hot/dev-server'),
@@ -33,6 +33,9 @@ module.exports = {
 		new webpack.LoaderOptionsPlugin({
 			options: {
 				postcss: [
+					require('postcss-import')({
+						addDependencyTo: webpack,
+					}),
 					require('postcss-cssnext'),
 				],
 			},
