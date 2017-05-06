@@ -9,7 +9,7 @@ export default class HomePage extends React.Component<any, any> {
 	}
 	render() {
 		return (
-			<Container className='home-page'>
+			<Container pad-l className='home-page'>
 				Hello this is the home page!
 			</Container>
 		)

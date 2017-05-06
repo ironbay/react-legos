@@ -10,6 +10,7 @@
 .container.align-center { align-items: center; }
 .container.justify-center{ justify-content: center; }
 
+.container.margin { margin: var(--gutter); }
 .container.margin-v { margin: var(--gutter) 0; }
 .container.margin-h { margin: 0 var(--gutter); }
 .container.margin-left { margin-left: var(--gutter); }
@@ -17,13 +18,15 @@
 .container.margin-top { margin-top: var(--gutter); }
 .container.margin-bottom { margin-bottom: var(--gutter); }
 
-.container.margin-large-v { margin: var(--gutter-large) 0; }
-.container.margin-large-h { margin: 0 var(--gutter-large); }
-.container.margin-large-left { margin-left: var(--gutter-large); }
-.container.margin-large-right { margin-right: var(--gutter-large); }
-.container.margin-large-top { margin-top: var(--gutter-large); }
-.container.margin-large-bottom { margin-bottom: var(--gutter-large); }
+.container.margin-l { margin: var(--gutter-large); }
+.container.margin-l-v { margin: var(--gutter-large) 0; }
+.container.margin-l-h { margin: 0 var(--gutter-large); }
+.container.margin-l-left { margin-left: var(--gutter-large); }
+.container.margin-l-right { margin-right: var(--gutter-large); }
+.container.margin-l-top { margin-top: var(--gutter-large); }
+.container.margin-l-bottom { margin-bottom: var(--gutter-large); }
 
+.container.pad { padding: var(--gutter); }
 .container.pad-v { padding: var(--gutter) 0; }
 .container.pad-h { padding: 0 var(--gutter); }
 .container.pad-left { padding-left: var(--gutter); }
@@ -31,9 +34,10 @@
 .container.pad-top { padding-top: var(--gutter); }
 .container.pad-bottom { padding-bottom: var(--gutter); }
 
-.container.pad-large-v { padding: var(--gutter-large) 0; }
-.container.pad-large-h { padding: 0 var(--gutter-large); }
-.container.pad-large-left { padding-left: var(--gutter-large); }
-.container.pad-large-right { padding-right: var(--gutter-large); }
-.container.pad-large-top { padding-top: var(--gutter-large); }
-.container.pad-large-bottom { padding-bottom: var(--gutter-large); }
+.container.pad-l { padding: var(--gutter-large); }
+.container.pad-l-v { padding: var(--gutter-large) 0; }
+.container.pad-l-h { padding: 0 var(--gutter-large); }
+.container.pad-l-left { padding-left: var(--gutter-large); }
+.container.pad-l-right { padding-right: var(--gutter-large); }
+.container.pad-l-top { padding-top: var(--gutter-large); }
+.container.pad-l-bottom { padding-bottom: var(--gutter-large); }
