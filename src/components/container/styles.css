@@ -9,6 +9,8 @@
 
 .container.align-center { align-items: center; }
 .container.justify-center{ justify-content: center; }
+.container.align-right { align-items: flex-end;; }
+.container.justify-right { justify-content: flex-end; }
 
 .container.margin { margin: var(--gutter); }
 .container.margin-v { margin: var(--gutter) 0; }
