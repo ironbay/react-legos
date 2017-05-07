@@ -12,5 +12,15 @@ export default wrap(Container, 'text', {}, [
 	'xl',
 	'xxl',
 
-	'stretch'
+	'stretch',
+
+	'uppercase',
+
+	'thin',
+	'light',
+	'medium',
+	'semibold',
+	'bold',
+	'extrabold',
+	'black',
 ])

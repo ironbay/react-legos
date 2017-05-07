@@ -6,7 +6,7 @@ body {
 
 .text {
 	font-size: 1.5625rem;
-	line-height: 1.4;
+	line-height: 1;
 }
 .text.stretch {
 	line-height: 2;
@@ -18,3 +18,16 @@ body {
 .text.l { font-size: 1.9375rem; }
 .text.xl { font-size: 2.5rem; }
 .text.xxl { font-size: 3rem; }
+
+.text.thin { font-weight: 100; }
+.text.light { font-weight: 300; }
+.text.medium { font-weight: 500; }
+.text.semibold { font-weight: 600; }
+.text.bold { font-weight: 700; }
+.text.extrabold { font-weight: 800; }
+.text.black { font-weight: 900; }
+
+.text.uppercase {
+	text-transform: uppercase;
+	letter-spacing: 0.1em;
+}
