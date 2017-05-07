@@ -43,3 +43,8 @@
 .container.pad-l-right { padding-right: var(--gutter-large); }
 .container.pad-l-top { padding-top: var(--gutter-large); }
 .container.pad-l-bottom { padding-bottom: var(--gutter-large); }
+
+.container.wrap {
+	max-width: 100%;
+	width: 75rem;
+}

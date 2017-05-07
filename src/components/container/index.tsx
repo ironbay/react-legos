@@ -40,4 +40,6 @@ export default wrap('div', 'container', {}, [
 	'pad-l-left',
 	'pad-l-top',
 	'pad-l-bottom',
+
+	'wrap',
 ])
