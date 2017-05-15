@@ -23,4 +23,6 @@ export default wrap(Container, 'text', {}, [
 	'bold',
 	'extrabold',
 	'black',
+
+	'preserve',
 ])
