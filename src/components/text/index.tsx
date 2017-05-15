@@ -17,6 +17,7 @@ export default wrap(Container, 'text', {}, [
 	'uppercase',
 
 	'thin',
+	'extralight',
 	'light',
 	'medium',
 	'semibold',

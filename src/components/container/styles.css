@@ -1,4 +1,5 @@
 @import '../../variables/sizing.css';
+@import '../../variables/colors.css';
 
 .container {
 	display: flex;
@@ -28,6 +29,14 @@
 .container.margin-l-top { margin-top: var(--gutter-large); }
 .container.margin-l-bottom { margin-bottom: var(--gutter-large); }
 
+.container.margin-s { margin: var(--gutter-small); }
+.container.margin-s-v { margin: var(--gutter-small) 0; }
+.container.margin-s-h { margin: 0 var(--gutter-small); }
+.container.margin-s-left { margin-left: var(--gutter-small); }
+.container.margin-s-right { margin-right: var(--gutter-small); }
+.container.margin-s-top { margin-top: var(--gutter-small); }
+.container.margin-s-bottom { margin-bottom: var(--gutter-small); }
+
 .container.pad { padding: var(--gutter); }
 .container.pad-v { padding: var(--gutter) 0; }
 .container.pad-h { padding: 0 var(--gutter); }
@@ -48,3 +57,9 @@
 	max-width: 100%;
 	width: 75rem;
 }
+
+.container.fg-light { color: var(--light); }
+.container.fg-highlight { color: var(--highlight); }
+
+.container.bg-light { background: var(--light); }
+.container.bg-highlight { background: var(--highlight); }

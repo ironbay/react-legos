@@ -25,6 +25,14 @@ export default wrap('div', 'container', {}, [
 	'margin-l-top',
 	'margin-l-bottom',
 
+	'margin-s',
+	'margin-s-v',
+	'margin-s-h',
+	'margin-s-right',
+	'margin-s-left',
+	'margin-s-top',
+	'margin-s-bottom',
+
 	'pad',
 	'pad-v',
 	'pad-h',
@@ -42,4 +50,10 @@ export default wrap('div', 'container', {}, [
 	'pad-l-bottom',
 
 	'wrap',
+
+	'fg-light',
+	'fg-highlight',
+
+	'bg-light',
+	'bg-highlight',
 ])

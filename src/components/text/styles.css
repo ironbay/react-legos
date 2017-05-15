@@ -5,8 +5,11 @@ body {
 }
 
 .text {
+	font-family: 'Montserrat';
 	font-size: 1.5625rem;
-	line-height: 1;
+	line-height: 1.4;
+	letter-spacing: 0.03em;
+	color: #2f2f2f;
 }
 .text.stretch {
 	line-height: 2;
@@ -20,6 +23,7 @@ body {
 .text.xxl { font-size: 3rem; }
 
 .text.thin { font-weight: 100; }
+.text.extralight { font-weight: 200; }
 .text.light { font-weight: 300; }
 .text.medium { font-weight: 500; }
 .text.semibold { font-weight: 600; }
@@ -32,4 +36,6 @@ body {
 	letter-spacing: 0.1em;
 }
 
-.text.preserve { white-space: pre; }
+.text.preserve {
+	white-space: pre;
+}
