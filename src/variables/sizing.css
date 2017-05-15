@@ -1,4 +1,5 @@
 :root {
+	--gutter-small: 0.5rem;
 	--gutter: 1rem;
-	--gutter-large: 1.5rem;
+	--gutter-large: 2rem;
 }
