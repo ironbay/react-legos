@@ -6,5 +6,5 @@ import Text from '../text'
 
 export default wrap(Text, 'tag', {
 	uppercase: true,
-	'medium': true,
+	'weight-6': true,
 }, [])

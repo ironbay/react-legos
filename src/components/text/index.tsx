@@ -4,26 +4,9 @@ import wrap from '../wrap'
 
 import Container from '../container'
 
-export default wrap(Container, 'text', {}, [
-	'xxs',
-	'xs',
-	's',
-	'l',
-	'xl',
-	'xxl',
-
-	'stretch',
-
-	'uppercase',
-
-	'thin',
-	'extralight',
-	'light',
-	'medium',
-	'semibold',
-	'bold',
-	'extrabold',
-	'black',
-
-	'preserve',
-])
+export default wrap(Container, 'text', {}, {
+	size: true,
+	uppercase: true,
+	weight: true,
+	preserve: true,
+})
