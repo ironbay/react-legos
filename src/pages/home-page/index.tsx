@@ -5,16 +5,26 @@ import Container from '../../components/container'
 import Text from '../../components/text'
 import Tag from '../../components/tag'
 import Modal from '../../components/modal'
-import { Input, InputRow, InputBlock, InputLabel, InputArea } from '../../components/form'
+import { editor, Input, InputTags, InputRow, InputBlock, InputLabel, InputArea } from '../../components/form'
 
 export default class HomePage extends React.Component<any, any> {
 	constructor() {
 		super()
+		this.state = {
+			name: 'Some Item',
+			tags: {
+				hello: 1,
+				bye: 1,
+			}
+		}
+	}
+	componentDidMount() {
 	}
 	render() {
+		console.log(this.state)
 		return (
 			<Container vertical align-center pad-8>
-				<Modal>
+				<Modal ref='modal'>
 					<Container pad-8 vertical>
 						<Text size-5 weight-5>Edit Item</Text>
 					</Container>
@@ -22,7 +32,7 @@ export default class HomePage extends React.Component<any, any> {
 						<InputRow>
 							<InputBlock border-r>
 								<InputLabel>Title</InputLabel>
-								<Input placeholder='Name of item' />
+								<Input value={this.state.name} placeholder='Name of item' onChange={editor.bind(this, 'name')}/>
 							</InputBlock>
 							<InputBlock>
 								<InputLabel>Referrer</InputLabel>
@@ -36,16 +46,13 @@ export default class HomePage extends React.Component<any, any> {
 							</InputBlock>
 						</InputRow>
 						<InputRow>
-							<InputBlock border-r>
+							<InputBlock>
 								<InputLabel>Tags</InputLabel>
-								<Container mgn-t2>
-									<Tag fg-blue mgn-r3>Hello</Tag>
-									<Tag fg-blue mgn-r3>Bye</Tag>
-								</Container>
+								<InputTags placeholder='Add tag...' value={this.state.tags} onChange={editor.bind(this, 'tags')} />
 							</InputBlock>
 						</InputRow>
 					</Container>
-					<Container bg-blue pad-6 justify-center>
+					<Container cursor bg-blue pad-6 justify-center>
 						<Text fg-white weight-5 >Save</Text>
 					</Container>
 				</Modal>

@@ -8,5 +8,8 @@
 	outline: 0;
 	width: 100%;
 	background: transparent;
+}
+
+textarea.input {
 	line-height: 1.5;
 }

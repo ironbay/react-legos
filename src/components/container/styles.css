@@ -8,8 +8,9 @@
 .container.vertical { flex-direction: column; }
 .container.horizontal { flex-direction: row; }
 
+.container.align-left { align-items: flex-start; }
 .container.align-center { align-items: center; }
-.container.align-right  { align-items: flex-end;; }
+.container.align-right  { align-items: flex-end; }
 
 .container.justify-center { justify-content: center; }
 .container.justify-right  { justify-content: flex-end; }
@@ -104,6 +105,10 @@
 .container.wrap {
 	max-width: 100%;
 	width: 75rem;
+}
+
+.container.cursor {
+	cursor: pointer;
 }
 
 .container.bg-white  { background: white; }
