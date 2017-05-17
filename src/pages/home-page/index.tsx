@@ -21,7 +21,6 @@ export default class HomePage extends React.Component<any, any> {
 	componentDidMount() {
 	}
 	render() {
-		console.log(this.state)
 		return (
 			<Container vertical align-center pad-8>
 				<Modal ref='modal'>
