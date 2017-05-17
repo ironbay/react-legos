@@ -1,0 +1,12 @@
+@import '../../variables/colors';
+
+.input {
+	font-family: 'Montserrat';
+	font-size: 1rem;
+	letter-spacing: 0.03em;
+	border: 0;
+	outline: 0;
+	width: 100%;
+	background: transparent;
+	line-height: 1.5;
+}

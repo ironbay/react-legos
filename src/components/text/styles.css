@@ -11,20 +11,18 @@ body {
 	font-weight: 400;
 	letter-spacing: 0.03em;
 	color: #2f2f2f;
-}
-.text.stretch {
-	line-height: 2;
+	line-height: 1;
 }
 
-.text.size-1 { font-size: calc(1 * var(--unit)); }
-.text.size-2 { font-size: calc(2 * var(--unit)); }
-.text.size-3 { font-size: calc(3 * var(--unit)); }
-.text.size-4 { font-size: calc(4 * var(--unit)); }
-.text.size-5 { font-size: calc(5 * var(--unit)); }
-.text.size-6 { font-size: calc(6 * var(--unit)); }
-.text.size-7 { font-size: calc(7 * var(--unit)); }
-.text.size-8 { font-size: calc(8 * var(--unit)); }
-.text.size-9 { font-size: calc(9 * var(--unit)); }
+.text.size-1  { font-size: calc(1 * var(--unit));  }
+.text.size-2  { font-size: calc(2 * var(--unit));  }
+.text.size-3  { font-size: calc(3 * var(--unit));  }
+.text.size-4  { font-size: calc(4 * var(--unit));  }
+.text.size-5  { font-size: calc(5 * var(--unit));  }
+.text.size-6  { font-size: calc(6 * var(--unit));  }
+.text.size-7  { font-size: calc(7 * var(--unit));  }
+.text.size-8  { font-size: calc(8 * var(--unit));  }
+.text.size-9  { font-size: calc(9 * var(--unit));  }
 .text.size-10 { font-size: calc(10 * var(--unit)); }
 .text.size-11 { font-size: calc(11 * var(--unit)); }
 .text.size-12 { font-size: calc(12 * var(--unit)); }
@@ -33,10 +31,21 @@ body {
 .text.weight-2 { font-weight: 200; }
 .text.weight-3 { font-weight: 300; }
 .text.weight-4 { font-weight: 400; }
-.text.weight-6 { font-weight: 500; }
+.text.weight-5 { font-weight: 500; }
+.text.weight-6 { font-weight: 600; }
 .text.weight-7 { font-weight: 700; }
 .text.weight-8 { font-weight: 800; }
 .text.weight-9 { font-weight: 900; }
+
+.text.line-1  { line-height: calc(1 * var(--unit));  }
+.text.line-2  { line-height: calc(2 * var(--unit));  }
+.text.line-3  { line-height: calc(3 * var(--unit));  }
+.text.line-4  { line-height: calc(4 * var(--unit));  }
+.text.line-5  { line-height: calc(5 * var(--unit));  }
+.text.line-6  { line-height: calc(6 * var(--unit));  }
+.text.line-7  { line-height: calc(7 * var(--unit));  }
+.text.line-8  { line-height: calc(8 * var(--unit));  }
+
 
 .text.uppercase {
 	text-transform: uppercase;

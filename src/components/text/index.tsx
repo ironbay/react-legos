@@ -9,4 +9,5 @@ export default wrap(Container, 'text', {}, {
 	uppercase: true,
 	weight: true,
 	preserve: true,
+	line: true,
 })

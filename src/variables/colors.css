@@ -1,7 +1,6 @@
 :root {
-	--primary: #333;
+	--purple: #6600ff;
+	--blue: #3498db;
 	--gray: gray;
-	--highlight: #6600ff;
-	--secondary: #6600ff;
-	--light: white;
+	--border: #dbdbdb;
 }

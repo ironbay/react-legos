@@ -15,4 +15,5 @@ export default wrap('div', 'container', {}, {
 	bg: true,
 	border: true,
 	size: true,
+	shadow: true,
 })
