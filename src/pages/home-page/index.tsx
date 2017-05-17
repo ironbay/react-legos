@@ -15,7 +15,8 @@ export default class HomePage extends React.Component<any, any> {
 			tags: {
 				hello: 1,
 				bye: 1,
-			}
+			},
+			modal: true,
 		}
 	}
 	componentDidMount() {
@@ -23,7 +24,7 @@ export default class HomePage extends React.Component<any, any> {
 	render() {
 		return (
 			<Container vertical align-center pad-8>
-				<Modal>
+				<Modal active={this.state.modal} onHide={() => this.setState({modal: false})} >
 					<Container pad-8 vertical>
 						<Text size-5 weight-5>Edit Item</Text>
 					</Container>
