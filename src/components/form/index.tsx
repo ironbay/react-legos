@@ -28,8 +28,14 @@ export const InputLabel = wrap(Text, 'input-text', {
 	'mgn-b': true,
 }, {})
 
-export class InputTags extends React.Component<any, any> {
-	private value = {}
+
+interface IInputTagProps {
+	value: Object,
+	placeholder: string,
+	onChange: any,
+}
+
+export class InputTags extends React.Component<IInputTagProps, any> {
 	constructor(props) {
 		super()
 	}
