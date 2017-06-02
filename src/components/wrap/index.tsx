@@ -7,7 +7,7 @@ export default function wrap(element: any, baseClass: string, props: Object, mod
 		for (let key of Object.keys(rest)) {
 			const prefix = key.split('-')[0]
 			if (modifiers[prefix]) {
-				classes[key] = true
+				classes[key] = rest[key]
 				delete rest[key]
 			}
 		}

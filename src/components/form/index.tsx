@@ -1,77 +1,51 @@
 import './styles.css'
 import * as React from 'react'
+import * as moment from 'moment'
 import wrap from '../wrap'
 
 import Text from '../text'
 import Tag from '../tag'
 import Container from '../container'
 
+export { default as DateTime } from './datetime'
+export { default as Tags } from './tags'
+
 export const Input = wrap('input', 'input', {}, {})
 
-export const InputArea = wrap('textarea', 'input', {}, {})
+export const TextArea = wrap('textarea', 'input', {}, {})
 
-export const InputRow = wrap(Container, 'input-row', {
-	'border-t': true
+export const Row = wrap(Container, 'input-row', {
+	'border-t': true,
+	grow: 1,
 }, {})
 
-export const InputBlock = wrap(Container, 'input-row', {
+export const Select = wrap('select', 'input input-select', {}, {})
+
+export const Block = wrap(Container, 'input-block', {
 	vertical: true,
 	'pad-5': true,
-	grow: true,
+	'flex-basis': true,
+	grow: 1,
 }, {})
 
-export const InputLabel = wrap(Text, 'input-text', {
+export const Label = wrap(Text, 'input-text', {
 	uppercase: true,
 	'size-3': true,
 	'weight-5': true,
 	'fg-gray': true,
-	'mgn-b': true,
+	'mgn-b2': true,
 }, {})
 
-
-interface IInputTagProps {
-	value: Object,
-	placeholder: string,
-	onChange: any,
-}
-
-export class InputTags extends React.Component<IInputTagProps, any> {
-	constructor(props) {
-		super()
-	}
-	render() {
-		let keys = Object.keys(this.props.value)
-		return (
-			<Container mgn-t2 style={{display: 'block'}}>
-				{
-					keys.map(item => {
-						return <Tag key={item} mgn-r3 mgn-b3>{item}</Tag>
-					})
-				}
-				<Container mgn-t>
-					<Input onKeyUp={this.add_tag} placeholder={this.props.placeholder} />
-				</Container>
-			</Container>
-		)
-	}
-	private add_tag = e => {
-		if (e.which !== 13)
-			return
-		this.props.onChange({
-			target: {
-				value: {
-					...this.props.value,
-					[e.target.value]: true,
-				}
-			}
-		})
-		e.target.value = ''
-	}
-
-}
-
 export function editor(name, e) {
-	this.setState({
-		[name]: e.target.value
+	const component = this as React.Component<any, any>
+	const { value } = e.target
+	component.setState(state => {
+		return {
+			...state,
+			item: {
+				...state.item,
+				[name]: value
+			}
+		}
 	})
 }

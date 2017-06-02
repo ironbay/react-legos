@@ -4,6 +4,7 @@ import wrap from '../wrap'
 import * as cs from 'classnames'
 
 import Container from '../container'
+import Text from '../text'
 
 interface IProps {
 	active?: boolean,
@@ -11,7 +12,7 @@ interface IProps {
 	children: JSX.Element[],
 }
 
-export default function Modal(props: IProps) {
+export function Modal(props: IProps) {
 	const classes = cs('modal', {
 		active: props.active
 	})
@@ -23,3 +24,24 @@ export default function Modal(props: IProps) {
 		</Container>
 	)
 }
+
+export const ModalTitle = wrap(Text, 'modal-title', {
+	'pad-v6': true,
+	'bg-lightgray': true,
+	'weight-5': true,
+	'fg-gray': true,
+	style: {
+		textAlign: 'center'
+	}
+}, {})
+
+export const ModalButton = wrap(Text, 'modal-button', {
+	'pad-v6': true,
+	'justify-center': true,
+	'weight-5': true,
+	'size-3': true,
+	'uppercase': true,
+	'flex-basis': true,
+	'cursor': true,
+	'grow': 1,
+}, {})

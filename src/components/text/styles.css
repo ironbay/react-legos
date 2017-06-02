@@ -17,6 +17,7 @@ body {
 .text.size-1  { font-size: calc(1 * var(--unit));  }
 .text.size-2  { font-size: calc(2 * var(--unit));  }
 .text.size-3  { font-size: calc(3 * var(--unit));  }
+.text.size-3-5  { font-size: calc(3.5 * var(--unit));  }
 .text.size-4  { font-size: calc(4 * var(--unit));  }
 .text.size-5  { font-size: calc(5 * var(--unit));  }
 .text.size-6  { font-size: calc(6 * var(--unit));  }

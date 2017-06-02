@@ -8,6 +8,7 @@
 	transition: 300ms all;
 	opacity: 0;
 	pointer-events: none;
+	cursor: pointer;
 }
 
 .modal.active {
@@ -17,4 +18,11 @@
 
 .modal-wrap {
 	width: 30rem;
+	cursor: initial;
+	transition: 300ms all;
+	transform: translate3d(0, 50px, 0);
+}
+
+.modal.active .modal-wrap {
+	transform: translate3d(0, 0, 0);
 }

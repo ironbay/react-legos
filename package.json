@@ -12,6 +12,7 @@
   "license": "ISC",
   "dependencies": {
     "classnames": "^2.2.5",
+    "moment": "^2.18.1",
     "react": "^15.5.4",
     "react-dom": "^15.5.4",
     "react-router-dom": "^4.1.1"

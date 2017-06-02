@@ -1,6 +1,9 @@
 :root {
 	--purple: #6600ff;
 	--blue: #3498db;
+	--green: green;
 	--gray: gray;
+	--lightgray: whitesmoke;
 	--border: #dbdbdb;
+	--highlight: var(--blue);
 }

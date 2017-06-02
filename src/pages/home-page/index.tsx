@@ -4,17 +4,19 @@ import * as React from 'react'
 import Container from '../../components/container'
 import Text from '../../components/text'
 import Tag from '../../components/tag'
-import Modal from '../../components/modal'
-import { editor, Input, InputTags, InputRow, InputBlock, InputLabel, InputArea } from '../../components/form'
+import { Modal } from '../../components/modal'
+import * as Form from '../../components/form'
 
 export default class HomePage extends React.Component<any, any> {
 	constructor() {
 		super()
 		this.state = {
-			name: 'Some Item',
-			tags: {
-				hello: 1,
-				bye: 1,
+			item: {
+				name: 'Some Item',
+				tags: {
+					hello: 1,
+					bye: 1,
+				},
 			},
 			modal: true,
 		}
@@ -22,35 +24,36 @@ export default class HomePage extends React.Component<any, any> {
 	componentDidMount() {
 	}
 	render() {
+		const { item, modal } = this.state
 		return (
 			<Container vertical align-center pad-8>
-				<Modal active={this.state.modal} onHide={() => this.setState({modal: false})} >
+				<Modal active={modal} onHide={() => this.setState({modal: false})} >
 					<Container pad-8 vertical>
 						<Text size-5 weight-5>Edit Item</Text>
 					</Container>
 					<Container vertical>
-						<InputRow>
-							<InputBlock border-r>
-								<InputLabel>Title</InputLabel>
-								<Input value={this.state.name} placeholder='Name of item' onChange={editor.bind(this, 'name')}/>
-							</InputBlock>
-							<InputBlock>
-								<InputLabel>Referrer</InputLabel>
-								<Input placeholder='Your name.' />
-							</InputBlock>
-						</InputRow>
-						<InputRow>
-							<InputBlock border-r>
-								<InputLabel>Description</InputLabel>
-								<InputArea rows={5} placeholder='Description of item' />
-							</InputBlock>
-						</InputRow>
-						<InputRow>
-							<InputBlock>
-								<InputLabel>Tags</InputLabel>
-								<InputTags placeholder='Add tag...' value={this.state.tags} onChange={editor.bind(this, 'tags')} />
-							</InputBlock>
-						</InputRow>
+						<Form.Row>
+							<Form.Block border-r>
+								<Form.Label>Name</Form.Label>
+								<Form.Input value={item.name} placeholder='Name of item' onChange={Form.editor.bind(this, 'name')}/>
+							</Form.Block>
+							<Form.Block>
+								<Form.Label>Referrer</Form.Label>
+								<Form.Input placeholder='Your name' />
+							</Form.Block>
+						</Form.Row>
+						<Form.Row>
+							<Form.Block border-r>
+								<Form.Label>Description</Form.Label>
+								<Form.TextArea rows={5} placeholder='Description of item' />
+							</Form.Block>
+						</Form.Row>
+						<Form.Row>
+							<Form.Block>
+								<Form.Label>Tags</Form.Label>
+								<Form.Tags placeholder='Add tag...' value={item.tags} onChange={Form.editor.bind(this, 'tags')} />
+							</Form.Block>
+						</Form.Row>
 					</Container>
 					<Container cursor bg-blue pad-6 justify-center>
 						<Text fg-white weight-5 >Save</Text>

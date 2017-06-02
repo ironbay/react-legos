@@ -13,3 +13,7 @@
 textarea.input {
 	line-height: 1.5;
 }
+
+.input-select {
+	margin-left: -3px;
+}
