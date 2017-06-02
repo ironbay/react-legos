@@ -36,7 +36,9 @@ module.exports = {
 					require('postcss-import')({
 						addDependencyTo: webpack,
 					}),
-					require('postcss-cssnext'),
+					require('postcss-cssnext')({
+						browsers: ['> 0%', 'IE 9'],
+					}),
 				],
 			},
 		}),
@@ -51,8 +53,10 @@ module.exports = {
 					/\.css$/,
 					/\.json$/,
 					/\.svg$/,
+					/\.jpg$/,
+					/\.png$/,
 				],
-				loader: 'url',
+				loader: 'url-loader',
 				query: {
 					limit: 10000,
 					name: 'static/media/[name].[hash:8].[ext]',
@@ -70,5 +74,8 @@ module.exports = {
 	},
 	devServer: {
 		hot: true,
+		historyApiFallback: {
+			index: '/'
+		},
 	},
 }
