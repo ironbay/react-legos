@@ -5,7 +5,8 @@
         "noImplicitAny": false,
         "module": "commonjs",
         "target": "es5",
-        "jsx": "react"
+        "jsx": "react",
+		"lib": ["dom", "es2015", "es2017.object"]
     },
     "files": [
         "./declarations.d.ts",
