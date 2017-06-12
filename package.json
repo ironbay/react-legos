@@ -19,6 +19,7 @@
   },
   "devDependencies": {
     "@types/classnames": "0.0.32",
+    "@types/googlemaps": "^3.26.13",
     "@types/react": "^15.0.23",
     "@types/react-dom": "^15.5.0",
     "@types/webpack-env": "^1.13.0",
