@@ -10,10 +10,38 @@
 	background: transparent;
 }
 
+.input.error {
+	color: var(--red);
+}
+
 textarea.input {
 	line-height: 1.5;
 }
 
 .input-select {
 	margin-left: -3px;
+}
+
+.pac-container {
+	margin-top: 1.25rem;
+	margin-left: -1.25rem;
+	border-top: 1px solid #dbdbdb;
+	border-bottom: 1px solid #dbdbdb;
+	width: 30rem !important;
+	background: whitesmoke;
+	box-shadow: initial;
+}
+
+.pac-container::after {
+	display: none;
+}
+
+.pac-item {
+	cursor: pointer;
+	padding: 0.75rem 1.25rem;
+	border: 0;
+}
+
+.pac-icon {
+	display: none
 }

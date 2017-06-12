@@ -7,6 +7,7 @@ import Container from '../container'
 export default wrap(Container, 'text', {}, {
 	size: true,
 	uppercase: true,
+	capitalize: true,
 	weight: true,
 	preserve: true,
 	line: true,

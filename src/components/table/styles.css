@@ -1,0 +1,12 @@
+.table {
+	width: 100%;
+}
+
+.table-header, .table-cell {
+	text-align: left;
+	padding-bottom: 2rem;
+}
+
+.table-row.cursor {
+	cursor: pointer;
+}

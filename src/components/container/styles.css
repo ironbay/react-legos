@@ -114,6 +114,10 @@
 .container.border-t, .container.border, .container.border-v { border-top:    1px solid var(--border); }
 .container.border-b, .container.border, .container.border-v { border-bottom: 1px solid var(--border); }
 
+.container.border-highlight {
+	border-color: var(--highlight);
+}
+
 .container.wrap {
 	max-width: 100%;
 	width: 75rem;
@@ -155,6 +159,7 @@
 }
 
 .container.fill {
+	overflow: hidden;
 	position: absolute;
 	top: 0;
 	bottom: 0;
@@ -165,7 +170,6 @@
 .container.flex-basis {
 	flex-basis: 0;
 }
-
 
 @media (max-width: 34.5rem) {
 	.container.hide-mobile {

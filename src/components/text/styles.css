@@ -53,6 +53,10 @@ body {
 	letter-spacing: 0.1em;
 }
 
+.text.capitalize {
+	text-transform: capitalize;
+}
+
 .text.preserve {
 	white-space: pre;
 }

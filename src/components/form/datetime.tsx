@@ -49,14 +49,14 @@ export default class DateTime extends React.Component<any, any> {
 		}
 		return (
 			<span>
-				<Form.Row>
+				<Container>
 					<Arrow flip={false} onClick={() => trigger(parsed.clone().subtract(1, 'M').set('date', 1))} />
 					<Form.Block align-center>
 						<Text uppercase fg-gray size-3 weight-5>{start.format('MMMM YYYY')}</Text>
 					</Form.Block>
 					<Arrow flip={true} onClick={() => trigger(parsed.clone().add(1, 'M').set('date', 1))} />
-				</Form.Row>
-				<Form.Row>
+				</Container>
+				<Container>
 					<Arrow flip={false} onClick={bump.bind(this, start, -1 * RANGE, 'd')} />
 					<Container grow>
 						{
@@ -77,8 +77,8 @@ export default class DateTime extends React.Component<any, any> {
 						}
 					</Container>
 					<Arrow flip={true} onClick={bump.bind(this, start, RANGE, 'd')} />
-				</Form.Row>
-				<Form.Row>
+				</Container>
+				<Container>
 					<Arrow flip={false} onClick={bump.bind(this, parsed, -1 * unit.amount, unit.type)} />
 					<Container grow pad-v8 justify-center>
 						<Text cursor uppercase size-8 weight-3 weight-5={unit.type === 'h'} onClick={() => this.handle_unit('h', 1)} >{parsed.format('hh')}</Text>
@@ -87,7 +87,7 @@ export default class DateTime extends React.Component<any, any> {
 						<Text size-8 weight-3>{parsed.format('a')}</Text>
 					</Container>
 					<Arrow flip={true} onMouseDown={bump.bind(this, parsed, unit.amount, unit.type)} />
-				</Form.Row>
+				</Container>
 			</span>
 
 		)
