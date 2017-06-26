@@ -69,6 +69,11 @@
 .container.mgn-t8, .container.mgn-8, .container.mgn-v8 { margin-top:    calc(8 * var(--unit)); }
 .container.mgn-b8, .container.mgn-8, .container.mgn-v8 { margin-bottom: calc(8 * var(--unit)); }
 
+.container.mgn-l0, .container.mgn-0, .container.mgn-h0 { margin-left:   calc(0 * var(--unit)); }
+.container.mgn-r0, .container.mgn-0, .container.mgn-h0 { margin-right:  calc(0 * var(--unit)); }
+.container.mgn-t0, .container.mgn-0, .container.mgn-v0 { margin-top:    calc(0 * var(--unit)); }
+.container.mgn-b0, .container.mgn-0, .container.mgn-v0 { margin-bottom: calc(0 * var(--unit)); }
+
 .container.pad-l, .container.pad, .container.pad-h { padding-left:   calc(1 * var(--unit)); }
 .container.pad-r, .container.pad, .container.pad-h { padding-right:  calc(1 * var(--unit)); }
 .container.pad-t, .container.pad, .container.pad-v { padding-top:    calc(1 * var(--unit)); }
@@ -145,6 +150,7 @@
 .container.fg-blue      { color: var(--blue); }
 .container.fg-green     { color: var(--green); }
 .container.fg-highlight { color: var(--highlight); }
+.container.fg-red { color: var(--red); }
 
 .container.shadow {
 	box-shadow: 0 2px 2px 0 rgba(0,0,0,0.14), 0 1px 5px 0 rgba(0,0,0,0.12), 0 3px 1px -2px rgba(0,0,0,0.2);

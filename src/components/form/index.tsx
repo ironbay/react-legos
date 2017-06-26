@@ -13,9 +13,22 @@ export { default as Date } from './date'
 export { default as Tags } from './tags'
 export { default as Autocomplete } from './autocomplete'
 
+import * as Format from './format'
+export { Format as Format }
+
+
 export const Input = wrap('input', 'input', {}, {
 	error: true
 })
+
+export const FormatInput = wrap(({format, unformat, value, onChange, ...props}) => {
+	return <Input value={format(value)} onChange={e => {
+		console.log(e.target.value)
+		e.target.value = unformat(e.target.value)
+		console.log(e.target.value)
+		onChange(e)
+	}} {...props} />
+}, 'input', {}, {})
 
 export const TextArea = wrap('textarea', 'input', {}, {})
 
@@ -77,6 +90,7 @@ export class Address extends React.Component<any, any> {
 		const ac = new google.maps.places.Autocomplete(input)
 		ac.addListener('place_changed', () => {
 			const place = ac.getPlace()
+			console.log(place)
 			const payload = {
 				format: input.value,
 				name: place.name,
@@ -102,13 +116,14 @@ export class Address extends React.Component<any, any> {
 export class Editor<T> {
 	private field: string
 	private component: React.Component<any, any>
-	public changes: Object = {}
+	public merges: Object = {}
+	public deletes: Object = {}
 	constructor(component: React.Component<any, any>, field: string) {
 		this.component = component
 		this.field = field
 	}
 	edit(input: T) {
-		this.changes = {}
+		this.merges = {}
 		this.component.setState({
 			[this.field]: input
 		})
@@ -120,14 +135,31 @@ export class Editor<T> {
 		}
 		return (e: React.ChangeEvent<HTMLInputElement>) => {
 			const { value } = e.target
-			this.component.setState(state => {
-				const target = state[this.field] || {}
-				const next = Dynamic.put({ ...target }, path, value)
-				Dynamic.put(this.changes, path, value)
-				return {
-					[this.field]: next,
-				}
-			}, () => cb(value))
+			this.merge(path as Array<string>, value, cb)
 		}
+	}
+	merge(path: Array<string>, value: any, cb = (e: any) => {}) {
+		this.component.setState(state => {
+			const target = state[this.field] || {}
+			const next = Dynamic.put({ ...target }, path, value)
+			Dynamic.put(this.merges, path, value)
+			return {
+				[this.field]: next,
+			}
+		}, () => cb(value))
+	}
+	delete(path: Array<string>, cb = () => {}) {
+		this.component.setState(state => {
+			const target = state[this.field] || {}
+			const cloned = {
+				...target
+			}
+			Dynamic.delete(cloned, path)
+			Dynamic.put(this.deletes, path, 1)
+			Dynamic.delete(this.merges, path)
+			return {
+				[this.field]: cloned
+			}
+		}, () => cb())
 	}
 }
