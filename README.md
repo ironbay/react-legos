@@ -1,4 +1,4 @@
-# react-typescript-template
+# react-component-kit
 Always up to date template for using React with Typescript
 
 
