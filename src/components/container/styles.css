@@ -17,6 +17,14 @@
 	overflow-y: scroll;
 }
 
+.container.relative {
+	position: relative;
+}
+
+.container.grid {
+	flex-wrap: wrap;
+}
+
 .container.vertical { flex-direction: column; }
 .container.horizontal { flex-direction: row; }
 

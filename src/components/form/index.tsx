@@ -10,6 +10,7 @@ import Container from '../container'
 
 export { default as DateTime } from './datetime'
 export { default as Date } from './date'
+export { default as Time } from './time'
 export { default as Tags } from './tags'
 export { default as Autocomplete } from './autocomplete'
 
@@ -23,9 +24,7 @@ export const Input = wrap('input', 'input', {}, {
 
 export const FormatInput = wrap(({format, unformat, value, onChange, ...props}) => {
 	return <Input value={format(value)} onChange={e => {
-		console.log(e.target.value)
 		e.target.value = unformat(e.target.value)
-		console.log(e.target.value)
 		onChange(e)
 	}} {...props} />
 }, 'input', {}, {})
@@ -90,7 +89,6 @@ export class Address extends React.Component<any, any> {
 		const ac = new google.maps.places.Autocomplete(input)
 		ac.addListener('place_changed', () => {
 			const place = ac.getPlace()
-			console.log(place)
 			const payload = {
 				format: input.value,
 				name: place.name,

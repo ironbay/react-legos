@@ -11,4 +11,5 @@ export default wrap(Container, 'text', {}, {
 	weight: true,
 	preserve: true,
 	line: true,
+	center: true,
 })

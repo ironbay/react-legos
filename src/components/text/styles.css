@@ -60,3 +60,7 @@ body {
 .text.preserve {
 	white-space: pre;
 }
+
+.text.center {
+	text-align: center;
+}

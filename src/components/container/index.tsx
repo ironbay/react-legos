@@ -5,6 +5,7 @@ import wrap from '../wrap'
 export default wrap('div', 'container', {}, {
 	horizontal: true,
 	vertical: true,
+	relative: true,
 	align: true,
 	justify: true,
 	grow: true,
@@ -23,4 +24,5 @@ export default wrap('div', 'container', {}, {
 	hide: true,
 	curved: true,
 	fill: true,
+	grid: true,
 })
