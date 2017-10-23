@@ -25,4 +25,5 @@ export default wrap('div', 'container', {}, {
 	curved: true,
 	fill: true,
 	grid: true,
+	unselectable: true,
 })

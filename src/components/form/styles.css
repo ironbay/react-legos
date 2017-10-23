@@ -10,6 +10,10 @@
 	background: transparent;
 }
 
+.input:disabled {
+	color: gray;
+}
+
 .input.error {
 	color: var(--red);
 }
@@ -23,8 +27,8 @@ textarea.input {
 }
 
 .pac-container {
-	margin-top: 1.25rem;
-	margin-left: -1.25rem;
+	margin-top: 1rem;
+	margin-left: -1rem;
 	border-top: 1px solid #dbdbdb;
 	border-bottom: 1px solid #dbdbdb;
 	width: 30rem !important;
@@ -44,4 +48,9 @@ textarea.input {
 
 .pac-icon {
 	display: none
+}
+
+select:-moz-focusring {
+	color: transparent;
+	text-shadow: 0 0 0 #000; 
 }

@@ -30,20 +30,20 @@ export default class Date extends React.Component<IProps, any> {
 	}
 	render() {
 		const { focus } = this.state
-		const { value, onChange, ...rest } = this.props
+		const { value, onChange, disabled, ...rest } = this.props
 		const ts = moment(value)
 		return (
 			<Container
 				vertical
-				onBlur={console.log}
 				relative>
 				<Container>
 					<Form.Input
 						error={this.state.value}
 						value={this.state.value === false ? ts.format(DISPLAY_FORMAT) : this.state.value}
 						onChange={this.handle_change}
+						disabled={disabled}
 						{...rest} />
-					<Icon src='calendar' onClick={() => this.handle_focus(!focus)} />
+					{!disabled && <Icon src='calendar' onClick={() => this.handle_focus(!focus)} />}
 				</Container>
 				{ focus && this.render_dropdown(ts) }
 			</Container>
@@ -61,9 +61,9 @@ export default class Date extends React.Component<IProps, any> {
 				style={{
 					zIndex: '1000',
 					position: 'absolute',
-					top: '41px',
+					top: '40px',
 					width: '30rem',
-					left: '-20px',
+					left: '-16px',
 				}}
 				vertical
 				border-v

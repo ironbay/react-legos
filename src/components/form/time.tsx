@@ -41,6 +41,7 @@ export default class Time extends React.Component<IProps, any> {
 							error={input !== false && !moment(input, DISPLAY_FORMAT).isValid()}
 							onChange={this.handle_change}
 							value={input === false ? ts.format(DISPLAY_FORMAT) : input}
+							{...rest}
 						/>
 					</Container>
 				</Container>

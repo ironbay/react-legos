@@ -14,7 +14,7 @@
 }
 
 .container.scroll {
-	overflow-y: scroll;
+	overflow-y: auto;
 }
 
 .container.relative {
@@ -34,6 +34,7 @@
 
 .container.justify-center { justify-content: center; }
 .container.justify-end { justify-content: flex-end; }
+.container.justify-between { justify-content: space-between; }
 
 .container.grow { flex-grow: 1; }
 
@@ -183,6 +184,10 @@
 
 .container.flex-basis {
 	flex-basis: 0;
+}
+
+.container.unselectable {
+	user-select: none;
 }
 
 @media (max-width: 34.5rem) {

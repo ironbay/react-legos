@@ -40,13 +40,14 @@ export const Select = wrap('select', 'input input-select', {}, {})
 
 export const Block = wrap(Container, 'input-block', {
 	vertical: true,
-	'pad-5': true,
+	'pad-4': true,
 	'flex-basis': true,
 	grow: 1,
 }, {})
 
 export const Label = wrap(Text, 'input-text', {
 	uppercase: true,
+	unselectable: true,
 	'size-3': true,
 	'weight-5': true,
 	'fg-gray': true,
@@ -91,6 +92,7 @@ export class Address extends React.Component<any, any> {
 			const place = ac.getPlace()
 			const payload = {
 				format: input.value,
+				raw: place.formatted_address,
 				name: place.name,
 				lat: place.geometry.location.lat(),
 				lng: place.geometry.location.lng(),
@@ -122,6 +124,7 @@ export class Editor<T> {
 	}
 	edit(input: T) {
 		this.merges = {}
+		this.deletes = {}
 		this.component.setState({
 			[this.field]: input
 		})
@@ -153,7 +156,12 @@ export class Editor<T> {
 				...target
 			}
 			Dynamic.delete(cloned, path)
-			Dynamic.put(this.deletes, path, 1)
+			// TODO: Remove try catch
+			try {
+				Dynamic.put(this.deletes, path, 1)
+			} catch(ex) {
+
+			}
 			Dynamic.delete(this.merges, path)
 			return {
 				[this.field]: cloned
