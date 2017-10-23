@@ -11,6 +11,7 @@ module.exports = {
 	entry: [
 		// require.resolve('webpack-dev-server/client') + '?/',
 		// require.resolve('webpack/hot/dev-server'),
+		'babel-polyfill',
 		'./src/index.tsx',
 	],
 	output: {
@@ -23,6 +24,14 @@ module.exports = {
 		extensions: ['.js', '.json', '.jsx', '.tsx', '.ts'],
 	},
 	plugins: [
+		new webpack.ProvidePlugin({
+			Promise: 'es6-promise-promise'
+		}),
+		new webpack.DefinePlugin({
+			'process.env': {
+				'NODE_ENV': JSON.stringify('production')
+			}
+		}),
 		new HtmlWebpackPlugin({
 			template: path.resolve(__dirname, '../public/index.html'),
 			inject: 'body',

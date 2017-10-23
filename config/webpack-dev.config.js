@@ -6,10 +6,11 @@ var HtmlWebpackPlugin = require('html-webpack-plugin')
 
 module.exports = {
 	context: path.resolve(__dirname, '..'),
-	devtool: 'cheap-module-eval-source-map',
+	devtool: 'eval',
 	entry: [
 		// require.resolve('webpack-dev-server/client') + '?/',
 		// require.resolve('webpack/hot/dev-server'),
+		'babel-polyfill',
 		'react-hot-loader/patch',
 		'./src/index.tsx',
 	],
@@ -23,8 +24,14 @@ module.exports = {
 		extensions: ['.js', '.json', '.jsx', '.tsx', '.ts'],
 	},
 	plugins: [
-		new webpack.NamedModulesPlugin(),
-		new webpack.HotModuleReplacementPlugin(),
+		new webpack.ProvidePlugin({
+			Promise: 'es6-promise-promise'
+		}),
+		new webpack.DefinePlugin({
+			'process.env': {
+				'NODE_ENV': JSON.stringify('dev')
+			}
+		}),
 		new HtmlWebpackPlugin({
 			template: path.resolve(__dirname, '../public/index.html'),
 			inject: 'body',
@@ -42,6 +49,8 @@ module.exports = {
 				],
 			},
 		}),
+		new webpack.NamedModulesPlugin(),
+		new webpack.HotModuleReplacementPlugin(),
 	],
 	module: {
 		loaders: [
@@ -74,6 +83,7 @@ module.exports = {
 	},
 	devServer: {
 		hot: true,
+		disableHostCheck: true,
 		historyApiFallback: {
 			index: '/'
 		},
