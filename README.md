@@ -9,7 +9,7 @@ To use this template create a new project and add a git remote pointing to this 
 mkdir project
 cd project
 git init
-git remote add template git@github.com:ironbay/react-typescript-template.git
+git remote add template git@github.com:ironbay/react-legos.git
 git pull template master
 ```
 
