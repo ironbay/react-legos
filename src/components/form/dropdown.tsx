@@ -1,6 +1,6 @@
 import * as React from 'react'
+import * as ReactDOM from 'react-dom'
 import { Container } from '../'
-import Lego from '../lego'
 
 interface Props {
     value?: any
@@ -16,6 +16,18 @@ export default class Dropdown extends React.Component<Props & React.HTMLAttribut
     state = {
         active: false
     }
+    constructor(props) {
+        super(props)
+        this.handle_outside = this.handle_outside.bind(this)
+    }
+    componentDidMount() {
+        document.addEventListener('click', this.handle_outside);
+    }
+
+    componentWillUnmount() {
+        document.removeEventListener('click', this.handle_outside);
+    }
+
     render() {
         const { options, value, placeholder, ...rest } = this.props
         const { active } = this.state
@@ -64,4 +76,12 @@ export default class Dropdown extends React.Component<Props & React.HTMLAttribut
             active: false
         })
     }
+
+    private handle_outside(e) {
+        if (!this.state.active || ReactDOM.findDOMNode(this).contains(e.target)) return
+        this.setState({
+            active: false
+        })
+    }
+}
 }

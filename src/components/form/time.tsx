@@ -1,7 +1,6 @@
 import * as React from 'react'
 import Moment from 'moment'
-import { Input } from '.'
-import Lego from '../lego'
+import Input from './input'
 
 const FORMAT_PARSE = 'h:ma'
 const FORMAT_DISPLAY = 'hh:mma z'

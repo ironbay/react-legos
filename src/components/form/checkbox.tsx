@@ -14,6 +14,7 @@ export default function Checkbox(props: CheckboxProps) {
             border-1
             radius-3
             fg-white
+
             style={{
                 width: big ? '28px' : '14px',
                 height: big ? '28px' : '14px',

@@ -3,14 +3,8 @@ export { default as Dropdown } from './dropdown'
 export { default as Checkbox } from './checkbox'
 export { default as Date } from './date'
 export { default as Time } from './time'
+export { default as Input } from './input'
 import Lego from '../lego'
-
-export const Input = Lego<React.InputHTMLAttributes<HTMLInputElement>>('input', {
-    'weight-5': true,
-    style: {
-        width: '100%'
-    }
-})
 
 export const Textarea = Lego<React.InputHTMLAttributes<HTMLInputElement>>('textarea', {
     'weight-5': true,

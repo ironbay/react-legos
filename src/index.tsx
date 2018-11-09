@@ -9,4 +9,4 @@ function render() {
     ReactDOM.render(<Routes />, element)
 }
 render()
-// module.hot.accept(render)
+module.hot.accept(render)
