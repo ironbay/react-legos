@@ -5,7 +5,7 @@ import RootPage from './pages/root-page'
 import HomePage from './pages/home-page'
 
 
-export default function {
+export default function Routes() {
     return (
         <BrowserRouter>
             <RootPage>

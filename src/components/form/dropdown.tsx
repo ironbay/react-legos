@@ -84,4 +84,3 @@ export default class Dropdown extends React.Component<Props & React.HTMLAttribut
         })
     }
 }
-}

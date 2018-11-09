@@ -9,4 +9,5 @@ function render() {
     ReactDOM.render(<Routes />, element)
 }
 render()
-module.hot.accept(render)
+const { hot } = module as any
+if (hot) hot.accept(render)
