@@ -1,6 +1,7 @@
 import * as React from 'react'
 import Moment from 'moment'
 import { Input } from '.'
+import { Container } from '../index'
 import Lego from '../lego'
 
 const FORMAT_PARSE = 'M/D/YYYY'
@@ -23,11 +24,13 @@ export default class Date extends React.Component<React.HTMLAttributes<HTMLInput
     render() {
         const { value, onChange, ...rest } = this.props
         return (
-            <Input
-                onBlur={() => this.handle_blur()}
-                onChange={e => this.setState({ value: e.target.value })}
-                value={this.state.value == null ? Moment(value).format(FORMAT_DISPLAY) : this.state.value as string}
-                {...rest} />
+            <Container flex>
+                <Input
+                    onBlur={() => this.handle_blur()}
+                    onChange={e => this.setState({ value: e.target.value })}
+                    value={this.state.value == null ? Moment(value).format(FORMAT_DISPLAY) : this.state.value as string}
+                    {...rest} />
+            </Container>
         )
     }
 
